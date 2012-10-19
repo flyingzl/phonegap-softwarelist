@@ -20,14 +20,13 @@ import android.util.Log;
 
 public class SoftwareListUtil extends Plugin {
 	
-	
+	//列出软件
 	private static final String LIST_ACTION="list";
 	
+	//卸载指定软件
 	private static final String UNINSTAL_ACTION="uninstall";
 	
-	
 	private String callbackId;
-	
 	
 	private  BroadcastReceiver receiver;
 
