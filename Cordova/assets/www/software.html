@@ -106,7 +106,7 @@
         </div>
 		
         <script  src="../js/iscroll.js"></script>
-		<script  src="../js/cordova.android.js"></script>
+		<script  src="../js/cordova-2.1.0.js"></script>
 		<script  src="../js/softUtil.js"></script>
 		
         <script>
@@ -114,14 +114,13 @@
 			
 			
 			function $(id){
-				
 				return document.getElementById(id);
 			}
 			
 			
 			function _loadSoftware(){
 				
-				var result=window.plugins.softwareListUtil.list(),
+				var result=window.softwareListUtil.list(),
 					lis=[];
 					
 				for(var i=0,l=result.length;i<l;i++){
@@ -144,7 +143,7 @@
 			
 			function showLoading(bool){
 				
-				bool ? Cordova.exec(null,null,"Notification","activityStart",["","正在获取数据"]) : Cordova.exec(null, null, 'Notification', 'activityStop', []);
+				bool ? cordova.exec(null,null,"Notification","activityStart",["","正在获取数据"]) : Cordova.exec(null, null, 'Notification', 'activityStop', []);
 			}
             
             
@@ -166,7 +165,7 @@
 				
 				$("thelist").addEventListener('click',function(event){
 					var ele=event.target;
-					ele.tagName.toLowerCase()=='li' && window.plugins.softwareListUtil.uninstall(function(res){
+					ele.tagName.toLowerCase()=='li' && window.softwareListUtil.uninstall(function(res){
 						if(res.status==1){
 							alert('卸载软件"'+ele.innerText+'"成功!');
 							$("thelist").removeChild(ele);
@@ -174,17 +173,6 @@
 					},ele.id);
 				},false);
 				
-				
-				$('header').addEventListener('click', function(){
-					
-					window.plugins.DateUtil.showDate(function(data){
-						
-						alert(data.year +' ' +data.month +' '+ data.day);
-					});
-					
-				},false);
-				
-
 				
 			}, false);
             

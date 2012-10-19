@@ -27,7 +27,7 @@
 
     <!-- <access origin="https://example.com" /> allow any secure requests to example.com -->
     <!-- <access origin="https://example.com" subdomains="true" /> such as above, but including subdomains, such as www -->
-    <access origin=".*"/>
+    <access origin="http://*" subdomains="true" />
 
     <log level="DEBUG"/>
     <preference name="useBrowserHistory" value="false" />
@@ -51,6 +51,7 @@
     <plugin name="Battery" value="org.apache.cordova.BatteryListener"/>
     <plugin name="SplashScreen" value="org.apache.cordova.SplashScreen"/>
     <plugin name="Echo" value="org.apache.cordova.Echo" />
+	<plugin name="SoftwareListUtil" value="com.neusoft.flyingzl.SoftwareListUtil" />
 </plugins>
 </cordova>
 

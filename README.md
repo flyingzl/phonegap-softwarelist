@@ -1,4 +1,4 @@
 phonegap-softwarelist
 =====================
 
-List all the softwares installed in Android with PhoneGap and HTML5
+通过使用PhoneGap and HTML5技术列出Android系统中软件并提供卸载功能
