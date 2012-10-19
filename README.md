@@ -5,7 +5,7 @@ phonegap-softwarelist
 
 截屏如下:
 
-![](http://ww2.sinaimg.cn/large/412e82dbjw1dy0i4lk21qj.jpg)
+![](https://raw.github.com/flyingzl/phonegap-softwarelist/master/screenshot-main.png)
 
 
 
