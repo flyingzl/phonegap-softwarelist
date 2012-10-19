@@ -1,33 +1,37 @@
 
-function SoftwareListUtil(){}
 
-SoftwareListUtil.prototype.list=function(){
+cordova.define("phonegap/softwarelist", function(require, exports, module) {
 	
-	return Cordova.exec(null,null,'SoftwareListUtil','list',[]);
-}
-
-SoftwareListUtil.prototype.uninstall=function(successFn,packageName){
-	return Cordova.exec(successFn,null,'SoftwareListUtil','uninstall',[packageName]);
-}
-
-
-
-function DateUtil(){}
-
-DateUtil.prototype.showDate = function( successFn, errorFn){
-	
-	return Cordova.exec(successFn,errorFn,'DateUtil','date',[]);
-}
-
-
-DateUtil.prototype.showTime = function( successFn, errorFn){
-	
-	return Cordova.exec(successFn,errorFn,'DateUtil','time',[]);
-}
-
-
-Cordova.addConstructor(function() {
-       Cordova.addPlugin("softwareListUtil", new SoftwareListUtil());
-	   Cordova.addPlugin("DateUtil", new DateUtil());
+	module.exports = {
+		
+		
+		/**
+		 * 列出android系统里面安装的所有非系统软件
+		 */
+		list: function(){
+			
+			return cordova.exec(null,null,'SoftwareListUtil','list',[]);
+			
+		},
+		
+		/**
+		 * 卸载Android系统里面指定的软件
+		 * @param {Object} successFn 卸载成功的回调函数
+		 * @param {Object} packageName 要删除的软件包名字
+		 */
+		uninstall: function(successFn, packageName){
+			
+			return cordova.exec(successFn,null,'SoftwareListUtil','uninstall',[packageName]);
+		}
+		
+	}
 });
+
+
+var softwareListUtil = cordova.require('phonegap/softwarelist');
+
+
+
+
+
 

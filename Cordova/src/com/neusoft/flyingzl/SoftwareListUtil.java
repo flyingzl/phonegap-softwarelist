@@ -1,8 +1,8 @@
-package com.neusoft.psd;
+package com.neusoft.flyingzl;
 
 import java.util.List;
 
-import org.apache.cordova.DroidGap;
+import org.apache.cordova.api.Plugin;
 import org.apache.cordova.api.PluginResult;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -17,8 +17,6 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.util.Log;
-
-import com.phonegap.api.Plugin;
 
 public class SoftwareListUtil extends Plugin {
 	
@@ -56,7 +54,7 @@ public class SoftwareListUtil extends Plugin {
 	                    	updateSoftware(intent);              
 	                    }
 	                };
-	                ctx.registerReceiver(this.receiver, intentFilter);
+	                cordova.getActivity().registerReceiver(this.receiver, intentFilter);
 	            }
 				this.showUninstallIntent(packageName);
 			} catch (JSONException e) {
@@ -83,7 +81,7 @@ public class SoftwareListUtil extends Plugin {
 	private JSONArray getInstalledSoftware(){
 		JSONArray array=new JSONArray();
         //获得安装程序列表
-        PackageManager packMan=((DroidGap)this.ctx).getPackageManager();
+        PackageManager packMan=cordova.getActivity().getPackageManager();
         List<PackageInfo> packgeInfoList=packMan.getInstalledPackages(PackageManager.GET_ACTIVITIES);
         
         JSONObject object;
@@ -123,7 +121,7 @@ public class SoftwareListUtil extends Plugin {
 	private void showUninstallIntent(String packageName){
 		Uri packageURI = Uri.parse("package:"+packageName);           
 		Intent uninstallIntent = new Intent(Intent.ACTION_DELETE, packageURI); 
-		this.ctx.startActivity(uninstallIntent);
+		cordova.getActivity().startActivity(uninstallIntent);
 	}
 
 }

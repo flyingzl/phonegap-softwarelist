@@ -18,6 +18,6 @@
        under the License.
 -->
 <resources>
-  <string name="app_name">Cordova</string>
+  <string name="app_name">软件卸载</string>
   <string name="go">Snap</string>
 </resources>
